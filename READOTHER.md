@@ -1,7 +1,9 @@
 # Random Forest and Decision Tree
 A tutorial on random forest and decision tree.
 Before talking about Random Forest, let's discuss DT first.
-<p align="center"><img src="https://rawgit.com/xuewyang/randomforest (fetch/master/svgs/32737e0a8d5a4cf32ba3ab1b74902ab7.svg?invert_in_darkmode" align=middle width=127.89183pt height=39.30498pt/></p>
+$$
+\frac{n!}{k!(n-k)!} = {n \choose k}
+$$
 ## What is a decision tree?
 Decision tree is a type of supervised learning algorithm that is mostly used in classification problems. In this technique, we split the population or sample into two or more homogeneous sets (or sub-populations) based on most significant splitter / differentiator in input variables.
 
