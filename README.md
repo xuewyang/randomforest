@@ -68,3 +68,49 @@ Below is a sample from the dataset
 2.2504,3.5757,0.35273,0.2836,0
 -1.3971,3.3191,-1.3927,-1.9948,1
 0.39012,-0.14279,-0.031994,0.35084,1
+
+### Create splits
+A split is comprised of an attribute in the dataset and a value.
+
+We can summarize this as the index of an attribute to split and the value by which to split rows on that attribute. This is just a useful shorthand for indexing into rows of data.
+
+Creating a split involves three parts, the first we have already looked at which is calculating the Gini score. The remaining two parts are:
+
+    Splitting a Dataset.
+    Evaluating All Splits.
+
+Let’s take a look at each.
+
+#### Splitting a dataset
+Splitting a dataset means separating a dataset into two lists of rows given the index of an attribute and a split value for that attribute.
+
+Once we have the two groups, we can then use our Gini score above to evaluate the cost of the split.
+
+Splitting a dataset involves iterating over each row, checking if the attribute value is below or above the split value and assigning it to the left or right group respectively.
+
+Note that the right group contains all rows with a value at the index above or equal to the split value.
+
+#### Evaluating all splits
+With the Gini function above and the test split function we now have everything we need to evaluate splits.
+
+Given a dataset, we must check every value on each attribute as a candidate split, evaluate the cost of the split and find the best possible split we could make.
+
+Once the best split is found, we can use it as a node in our decision tree.
+
+This is an exhaustive and greedy algorithm.
+
+We will use a dictionary to represent a node in the decision tree as we can store data by name. When selecting the best split and using it as a new node for the tree we will store the index of the chosen attribute, the value of that attribute by which to split and the two groups of data split by the chosen split point.
+
+Each group of data is its own small dataset of just those rows assigned to the left or right group by the splitting process. You can imagine how we might split each group again, recursively as we build out our decision tree.
+
+# Select the best split point for a dataset
+def get_split(dataset):
+	class_values = list(set(row[-1] for row in dataset))
+	b_index, b_value, b_score, b_groups = 999, 999, 999, None
+	for index in range(len(dataset[0])-1):
+		for row in dataset:
+			groups = test_split(index, row[index], dataset)
+			gini = gini_index(groups, class_values)
+			if gini < b_score:
+				b_index, b_value, b_score, b_groups = index, row[index], gini, groups
+	return {'index':b_index, 'value':b_value, 'groups':b_groups}
