@@ -21,7 +21,7 @@ This is where decision tree helps, it will segregate the students based on all v
 As mentioned above, decision tree identifies the most significant variable and it’s value that gives best homogeneous sets of population. Now the question which arises is, how does it identify the variable and the split? To do this, decision tree uses various algorithms, which we will shall discuss in the following section.
 
 ### Types of Decision Trees
-1. Item 1 **Categorical Variable Decision Tree:** Decision Tree which has categorical target variable. Example:- In above scenario of student problem, where the target variable was “Student will play cricket or not” i.e. YES or NO.
+1. **Categorical Variable Decision Tree:** Decision Tree which has categorical target variable. Example:- In above scenario of student problem, where the target variable was “Student will play cricket or not” i.e. YES or NO.
 2. **Continuous Variable Decision Tree:** Decision Tree has continuous target variable. Example:- Predict customer income based on occupation.
 
 ### Terminologies
@@ -46,8 +46,10 @@ The algorithm selection is also based on type of target variables. Let’s look 
 #### Gini Index
 Gini index is the cost function used to evaluate the splits in dataset. It measures the impurity of data partition K.
 
-Formula:
-where n is the number of classes, and P_{i} is the probability that an observation in K belongs to the class.Gini Index assumes a binary split for each of the attribute in S, let say T1 & T2. The Gini index of K given this partitioning is given by 
+Formula: G(k) = 1 - \sum_{i=1}^{n} P_{i}^2
+where n is the number of classes, and P_{i} is the probability that an observation in K belongs to the class. Gini Index assumes a binary split for each of the attribute in S, let say T1 & T2. The Gini index of K given this partitioning is given by
+G_s(K) = \frac{T_1}{T}G(T_1) + \frac{T_2}{T}G(T_2)
+ 
 Which is nothing but a weighted sum of each of the impurities in split nodes. The reduction in impurity is given by:
 
 
