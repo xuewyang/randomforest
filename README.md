@@ -107,5 +107,27 @@ Each group of data is its own small dataset of just those rows assigned to the l
 
 # Select the best split point for a dataset
 
+Now that we know how to find the best split points in a dataset or list of rows, let’s see how we can use it to build out a decision tree.
+
 #### Build a tree
 
+Creating a root node of the tree is easy, which can be done by call the **get_split()** function using the entire dataset. Adding more nodes to the tree is more interesting.
+
+Building a tree contains 3 parts:
+1. Decide when to stop growing a tree - terminal nodes.
+2. Add child nodes to an existing parent node - recursive splitting.
+3. Put all the pieces together - building a tree.
+
+##### Terminal nodes
+1. Maximum three depth. Once a maximum depth of the tree is met, we must stop splitting adding new nodes. Deeper trees are more complex and are more likely to overfit the training data.
+2. Minimum node records. This is the minimum number of training patterns that a given node is responsible for. Once at or below this minimum, we must stop splitting and adding new nodes. Nodes that account for too few training patterns are expected to be too specific and are likely to overfit the training data.
+3. Exception. It is possible to choose a split in which all rows belong to one group. In this case, we will be unable to continue splitting and adding child nodes as we will have no records to split on one side or another.
+
+We do stop growing at a given point, that node is called a terminal node and is used to make a final prediction.
+
+'''
+# Create a terminal node value
+def to_terminal(group):
+	outcomes = [row[-1] for row in group]
+	return max(set(outcomes), key=outcomes.count)
+'''
