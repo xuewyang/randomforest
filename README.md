@@ -69,10 +69,10 @@ Below provides a list of the five variables in the dataset.
 5. class (integer).
 Below is a sample from the dataset
 
-3.2414,0.40971,1.4015,1.1952,0
-2.2504,3.5757,0.35273,0.2836,0
--1.3971,3.3191,-1.3927,-1.9948,1
-0.39012,-0.14279,-0.031994,0.35084,1
+    3.2414,0.40971,1.4015,1.1952,0
+    2.2504,3.5757,0.35273,0.2836,0
+    -1.3971,3.3191,-1.3927,-1.9948,1
+    0.39012,-0.14279,-0.031994,0.35084,1
 
 ### Create splits
 A split is comprised of an attribute in the dataset and a value.
