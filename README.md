@@ -2,7 +2,9 @@
 A tutorial on random forest and decision tree.
 Before talking about Random Forest, let's discuss DT first.
 
-<p align="center"><img alt="$$&#10;x^2 + y^2&#10;$$" src="https://rawgit.com/xuewyang/randomforest (fetch/svgs/svgs/2df0462812afdf3716685057f8116942.svg?invert_in_darkmode" align=middle width="51.925005pt" height="17.359485pt"/></p>
+## An easy classification question.
+Is a watermelon with clear texture, wrinkled root a good melon, accoring to the below figure?
+![melon](/img/dt-0.png)
 
 ## What is a decision tree?
 Decision tree is a type of supervised learning algorithm that is mostly used in classification problems. In this technique, we split the population or sample into two or more homogeneous sets (or sub-populations) based on most significant splitter / differentiator in input variables.
@@ -13,7 +15,6 @@ Let’s say we have a sample of 30 students with three variables Gender (Boy/ Gi
 ![example](/img/dt1.png)
 
 This is where decision tree helps, it will segregate the students based on all values of three variable and identify the variable, which creates the best homogeneous sets of students (which are heterogeneous to each other). In the snapshot below, you can see that variable Gender is able to identify best homogeneous sets compared to the other two variables.
-![formula](/svgs/32737e0a8d5a4cf32ba3ab1b74902ab7.svg)
 
 As mentioned above, decision tree identifies the most significant variable and it’s value that gives best homogeneous sets of population. Now the question which arises is, how does it identify the variable and the split? To do this, decision tree uses various algorithms, which we will shall discuss in the following section.
 
