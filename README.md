@@ -124,9 +124,85 @@ Building a tree contains 3 parts:
 3. Exception. It is possible to choose a split in which all rows belong to one group. In this case, we will be unable to continue splitting and adding child nodes as we will have no records to split on one side or another.
 
 We do stop growing at a given point, that node is called a terminal node and is used to make a final prediction.
-
+```
     def to_terminal(group):
         outcomes = [row[-1] for row in group]
 	return max(set(outcomes), key=outcomes.count)
+```
+
+##### Recursive splitting
+New nodes added to an existing node are called child nodes. A node may have zero children (a terminal node), one child (one side makes a prediction directly) or two child nodes. We will refer to the child nodes as left and right in the dictionary representation of a given node.
+
+Once a node is created, we can create child nodes recursively on each group of data from the split by calling the same function again.
+
+1. Firstly, the two groups of data split by the node are extracted for use and deleted from the node. As we work on these groups the node no longer requires access to these data.
+2. Next, we check if either left or right group of rows is empty and if so we create a terminal node using what records we do have.
+3. We then check if we have reached our maximum depth and if so we create a terminal node.
+4. We then process the left child, creating a terminal node if the group of rows is too small, otherwise creating and adding the left node in a depth first fashion until the bottom of the tree is reached on this branch.
+5. The right side is then processed in the same manner, as we rise back up the constructed tree to the root.
+
+```
+def split(node, max_depth, min_size, depth):
+	left, right = node['groups']
+	del(node['groups'])
+	# check for a no split
+	if not left or not right:
+		node['left'] = node['right'] = to_terminal(left + right)
+		return
+	# check for max depth
+	if depth >= max_depth:
+		node['left'], node['right'] = to_terminal(left), to_terminal(right)
+		return
+	# process left child
+	if len(left) <= min_size:
+		node['left'] = to_terminal(left)
+	else:
+		node['left'] = get_split(left)
+		split(node['left'], max_depth, min_size, depth+1)
+	# process right child
+	if len(right) <= min_size:
+		node['right'] = to_terminal(right)
+	else:
+		node['right'] = get_split(right)
+		split(node['right'], max_depth, min_size, depth+1)
+```
+
+
+##### Building a tree
+
+Building the tree involves creating the root node and calling the **split()** function that then calls itself recursively to build out the whole tree.
+
+```
+def build_tree(train, max_depth, min_size):
+	root = get_split(train)
+	split(root, max_depth, min_size, 1)
+	return root
+```
+
+#### Make a prediction
+
+Making predictions with a decision tree involves navigating the tree with the specifically provided row of data.
+
+Again, we can implement this using a recursive function, where the same prediction routine is called again with the left or the right child nodes, depending on how the split affects the provided data.
+
+We must check if a child node is either a terminal value to be returned as the prediction, or if it is a dictionary node containing another level of the tree to be considered.
+
+Below is the **predict()** function that implements this procedure. You can see how the index and value in a given node.
+
+You can see how the index and value in a given node is used to evaluate whether the row of provided data falls on the left or the right of the split.
+
+```
+def predict(node, row):
+	if row[node['index']] < node['value']:
+		if isinstance(node['left'], dict):
+			return predict(node['left'], row)
+		else:
+			return node['left']
+	else:
+		if isinstance(node['right'], dict):
+			return predict(node['right'], row)
+		else:
+			return node['right']
+```
 
 
