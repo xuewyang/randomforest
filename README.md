@@ -125,9 +125,8 @@ Building a tree contains 3 parts:
 
 We do stop growing at a given point, that node is called a terminal node and is used to make a final prediction.
 
-'''
-# Create a terminal node value
+```
 def to_terminal(group):
 	outcomes = [row[-1] for row in group]
 	return max(set(outcomes), key=outcomes.count)
-'''
+```
