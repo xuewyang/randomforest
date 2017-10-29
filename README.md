@@ -104,13 +104,7 @@ We will use a dictionary to represent a node in the decision tree as we can stor
 Each group of data is its own small dataset of just those rows assigned to the left or right group by the splitting process. You can imagine how we might split each group again, recursively as we build out our decision tree.
 
 # Select the best split point for a dataset
-def get_split(dataset):
-	class_values = list(set(row[-1] for row in dataset))
-	b_index, b_value, b_score, b_groups = 999, 999, 999, None
-	for index in range(len(dataset[0])-1):
-		for row in dataset:
+
+#### Build a tree
+
 			groups = test_split(index, row[index], dataset)
-			gini = gini_index(groups, class_values)
-			if gini < b_score:
-				b_index, b_value, b_score, b_groups = index, row[index], gini, groups
-	return {'index':b_index, 'value':b_value, 'groups':b_groups}
