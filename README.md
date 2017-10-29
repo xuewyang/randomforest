@@ -103,8 +103,9 @@ We will use a dictionary to represent a node in the decision tree as we can stor
 
 Each group of data is its own small dataset of just those rows assigned to the left or right group by the splitting process. You can imagine how we might split each group again, recursively as we build out our decision tree.
 
+![cart](/img/CART-Contrived-Dataset.png)
+
 # Select the best split point for a dataset
 
 #### Build a tree
 
-			groups = test_split(index, row[index], dataset)
