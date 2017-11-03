@@ -265,3 +265,6 @@ def predict(node, row):
 #### Banknote case study
 
 See the code in .
+
+http://github.com - automatic!
+[GitHub](http://github.com)
