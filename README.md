@@ -41,7 +41,7 @@ Decision trees use multiple algorithms to decide to split a node in two or more 
 Let's discuss this with an example.
 
 Lead Actor |   Genre   |  Hit 
-------------------------------
+-----------|-----------|------
 X          |   Action  |  Yes
 X          |   Fiction |  Yes
 X          |   Romance |  No
