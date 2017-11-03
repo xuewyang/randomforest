@@ -66,7 +66,8 @@ Initial entropy in the system was:
 
 ![eni](/img/8.png)
 
-**Entropy for method 1**
+*Entropy for method 1*
+
 For left branch
 
 ![enl](/img/7.png)
@@ -75,10 +76,10 @@ For right branch
 
 ![enr](/img/4.png)
 
-**Information Gain = Entropy of parent - weighted average of children entropy**
-which is, **0.68 - (4x0.56 + 3x0.63)/7 = 0.09**
+*Information Gain = Entropy of parent - weighted average of children entropy*
+which is, *0.68 - (4x0.56 + 3x0.63)/7 = 0.09*
 
-**Information gain after method 2 split = 0.02**
+*Information gain after method 2 split = 0.02*
 
 Hence, method 1 gives us more information gain than method 2, thus, method 1 is a better split.
 
@@ -106,11 +107,7 @@ As per method 1, we have
 
 ![g1](/img/1.png)
 
-The reduciton of the impurity is thus: **0.49-0.43=0.06**, which is higher than that of method 2, which is **0.49-0.48=0.01**
-
-
-For the above example, for method 1
-
+The reduciton of the impurity is thus: *0.49-0.43=0.06*, which is higher than that of method 2, which is *0.49-0.48=0.01*
 
 ## Example - Banknote classification
 
@@ -168,10 +165,6 @@ We will use a dictionary to represent a node in the decision tree as we can stor
 Each group of data is its own small dataset of just those rows assigned to the left or right group by the splitting process. You can imagine how we might split each group again, recursively as we build out our decision tree.
 
 ![cart](/img/CART-Contrived-Dataset.png)
-
-# Select the best split point for a dataset
-
-Now that we know how to find the best split points in a dataset or list of rows, let’s see how we can use it to build out a decision tree.
 
 #### Build a tree
 
@@ -269,4 +262,6 @@ def predict(node, row):
 			return node['right']
 ```
 
+#### Banknote case study
 
+See the code in .
