@@ -38,13 +38,9 @@ Regression trees are used when dependent variable is continuous. Classification 
 ### How does a tree decide where to split ?
 Decision trees use multiple algorithms to decide to split a node in two or more sub-nodes. The creation of sub-nodes increases the purity of the node wrt. the target variable. Decision tree splits the nodes on all available variables and then selects the split which results in most homogeneous sub-nodes.
 
-Let's discuss this with an example. Let say, we want to identify the success of the movie but we can use only on variable - There are the following two ways in which this can be done:
+Consider this dataset:
 
-![method1](/img/m1.jpg)
-
-You can clearly observe that Method 1 (Based on lead actor) splits the data best while the second method (Based on Genre) have produced mixed results. Decision Tree algorithms do similar things when it comes to select variables.
-
-#### Entropy & Information Gain
+Lead Actor |   Genre   |  Hit
 -----------|-----------|------
 X          |   Action  |  Yes
 X          |   Fiction |  Yes
@@ -54,15 +50,35 @@ Y          |   Action  |  No
 Y          |   Fiction |  No
 Y          |   Romance |  Yes
 
+Let say, we want to identify the success of the movie but we can use only on variable - There are the following two ways in which this can be done:
+
+![method1](/img/m1.jpg)
+
+You can clearly observe that Method 1 (Based on lead actor) splits the data best while the second method (Based on Genre) have produced mixed results. Decision Tree algorithms do similar things when it comes to select variables.
+
+#### Entropy & Information Gain
+
 Entropy here stands for the statistical entropy, differentiating from the one from thermodynamics which is a measure of variablility or chaos or randomness, and is defined as:
 
------------------------------------
+![entropy](/img/9.png)
+
 Initial entropy in the system was:
 
-** Information Gain = Entropy of parent - weighted average of children entropy **
-which is, ** 0.68 - (4x0.56 + 3x0.63)/7 = 0.09 **
+![eni](/img/8.png)
 
-** Information gain after method 2 split = 0.02 **
+**Entropy for method 1**
+For left branch
+
+![enl](/img/7.png)
+
+For right branch
+
+![enr](/img/4.png)
+
+**Information Gain = Entropy of parent - weighted average of children entropy**
+which is, **0.68 - (4x0.56 + 3x0.63)/7 = 0.09**
+
+**Information gain after method 2 split = 0.02**
 
 Hence, method 1 gives us more information gain than method 2, thus, method 1 is a better split.
 
@@ -70,13 +86,30 @@ Hence, method 1 gives us more information gain than method 2, thus, method 1 is 
 
 Gini index measures the impurity of data splits.
 
-Formula: G(k) = 1 - \sum_{i=1}^{n} P_{i}^2
-where n is the number of classes, and P_{i} is the probability that an observation in K belongs to the class. Gini Index assumes a binary split for each of the attribute in S, let say T1 & T2. The Gini index of K given this partitioning is given by
-G_s(K) = \frac{T_1}{T}G(T_1) + \frac{T_2}{T}G(T_2)
+Formula:
 
+![gini](/img/6.png)
 
- 
+where n is the number of classes, and P is the probability that an observation in split belongs to the class. Gini Index assumes a binary split for each of the attribute, let say T1 & T2. The Gini index of the split is given by
+
+![split](/img/5.png)
+
 Which is nothing but a weighted sum of each of the impurities in split nodes. The reduction in impurity is given by:
+
+![reduct](/img/3.png)
+
+Coming back to the movie example, the original gini index of the dataset is:
+
+![g0](/img/2.png)
+
+As per method 1, we have
+
+![g1](/img/1.png)
+
+The reduciton of the impurity is thus: **0.49-0.43=0.06**, which is higher than that of method 2, which is **0.49-0.48=0.01**
+
+
+For the above example, for method 1
 
 
 ## Example - Banknote classification
