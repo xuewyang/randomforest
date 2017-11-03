@@ -264,7 +264,4 @@ def predict(node, row):
 
 #### Banknote case study
 
-See the code in .
-
-http://github.com - automatic!
-[GitHub](http://github.com)
+See the code in [GitHub/xuewyang/randomforest](https://github.com/xuewyang/randomforest/tree/master/dt).
