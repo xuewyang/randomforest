@@ -38,6 +38,18 @@ Regression trees are used when dependent variable is continuous. Classification 
 ### How does a tree decide where to split ?
 Decision trees use multiple algorithms to decide to split a node in two or more sub-nodes. The creation of sub-nodes increases the purity of the node wrt. the target variable. Decision tree splits the nodes on all available variables and then selects the split which results in most homogeneous sub-nodes.
 
+Let's discuss this with an example.
+
+Lead Actor |   Genre   |  Hit 
+------------------------------
+X          |   Action  |  Yes
+X          |   Fiction |  Yes
+X          |   Romance |  No
+X          |   Action  |  Yes
+Y          |   Action  |  No
+Y          |   Fiction |  No
+Y          |   Romance |  Yes
+
 #### Gini Index
 Gini index is the cost function used to evaluate the splits in dataset. It measures the impurity of data partition K.
 
