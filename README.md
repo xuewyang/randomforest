@@ -8,7 +8,7 @@ Is a watermelon with clear texture, wrinkled root a good melon, accoring to the 
 
 Then how to build a tree given training data? Why do we choose texture as root node, but not root or color? What is the criterion for choosing a feature attribute?
 
-## What is a decision tree?
+## What is a decision tree and CART?
 Decision tree is a tree whose nodes are feature attributes, every branch of the node stands for the output on that feature attribute. Every leaf node is a class. Decision tree is a type of supervised learning algorithm that is mostly used in classification problems. In this technique, we split the population or sample into two or more homogeneous sets (or sub-populations) based on most significant splitter / differentiator in input variables.
 
 example:
@@ -16,17 +16,12 @@ Let’s say we have a sample of 30 students with three variables Gender (Boy/ Gi
 
 ![example](/img/dt1.png)
 
-This is where decision tree helps, it will segregate the students based on all values of three variable and identify the variable, which creates the best homogeneous sets of students (which are heterogeneous to each other). In the snapshot below, you can see that variable Gender is able to identify best homogeneous sets compared to the other two variables.
+This is where decision tree helps, it will segregate the students based on all values of three variable and identify the variable, which creates the best homogeneous sets of students (which are heterogeneous to each other). In the snapshot above, you can see that variable Gender is able to identify best homogeneous sets compared to the other two variables.
 
-As mentioned above, decision tree identifies the most significant variable and it’s value that gives best homogeneous sets of population. Now the question which arises is, how does it identify the variable and the split? To do this, decision tree uses various algorithms, which we will shall discuss in the following section.
-
-### Types of Decision Trees
-1. **Categorical Variable Decision Tree:** Decision Tree which has categorical target variable. Example:- In above scenario of student problem, where the target variable was “Student will play cricket or not” i.e. YES or NO.
-2. **Continuous Variable Decision Tree:** Decision Tree has continuous target variable. Example:- Predict customer income based on occupation.
+As mentioned above, decision tree identifies the most significant variable and it’s value that gives best homogeneous sets of population. Now the question which arises is, how does it identify the variable and the split?
 
 ### Terminologies
 See the below figure
-![terminology](/img/dt2.png)
 1. **Root Node:** It represents entire population and this further gets divided into two or more homogeneous sets.
 2. **Splitting:** Dividing a node into two or more sub-nodes.
 3. **Decision Node:** When a sub-node splits into further sub-nodes, then it is called decision node.
@@ -35,13 +30,13 @@ See the below figure
 6. **Branch / Sub-Tree:** A sub section of entire tree is called branch or sub-tree.
 7. **Parent and Child Node:** A node, which is divided into sub-nodes is called parent node of sub-nodes where as sub-nodes are the child of parent node.
 
-## CART - Classification and Regression Trees
+![terminology](/img/dt2.png)
+
+##CART - Classification and Regression Trees
 Regression trees are used when dependent variable is continuous. Classification trees are used when dependent variable is categorical.
 
 ### How does a tree decide where to split ?
-Decision trees use multiple algorithms to decide to split a node in two or more sub-nodes. The creation of sub-nodes increases the homogeneity of resultant sub-nodes. In other words, we can say that purity of the node increases with respect to the target variable. Decision tree splits the nodes on all available variables and then selects the split which results in most homogeneous sub-nodes.
-
-The algorithm selection is also based on type of target variables. Let’s look at the four most commonly used algorithms in decision tree:
+Decision trees use multiple algorithms to decide to split a node in two or more sub-nodes. The creation of sub-nodes increases the purity of the node wrt. the target variable. Decision tree splits the nodes on all available variables and then selects the split which results in most homogeneous sub-nodes.
 
 #### Gini Index
 Gini index is the cost function used to evaluate the splits in dataset. It measures the impurity of data partition K.
