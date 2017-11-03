@@ -38,7 +38,10 @@ Regression trees are used when dependent variable is continuous. Classification 
 ### How does a tree decide where to split ?
 Decision trees use multiple algorithms to decide to split a node in two or more sub-nodes. The creation of sub-nodes increases the purity of the node wrt. the target variable. Decision tree splits the nodes on all available variables and then selects the split which results in most homogeneous sub-nodes.
 
-Let's discuss this with an example.
+Let's discuss this with an example. Let say, we want to identify the success of the movie but we can use only on variable - There are the following two ways in which this can be done:
+
+![method1](/img/m1.jpg)
+![method2](/img/m2.jpg)
 
 Lead Actor |   Genre   |  Hit 
 -----------|-----------|------
