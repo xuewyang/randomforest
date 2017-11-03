@@ -275,4 +275,40 @@ See the code in [GitHub/xuewyang/randomforest](https://github.com/xuewyang/rando
 
 ### Bagging
 
+There is a hard problem for a single tree: 
 
+![hard](/img/rf1.png)
+
+A single tree will have the following pattern, which is not a good way to separate the dataset.
+
+![singletree](/img/rf2.png)
+
+If we had 25 trees and average them, then we have the following pattern.
+
+![25averagedtree](/img/rf3.png)
+
+If the 25 trees vote for the final prediction, then we have the following, which is more accurate.
+
+![25votetree](/img/rf4.png)
+
+**Bagging** is bootstrap aggregating. Fit classification or regression models to bootstrap samples from the data and combine by voting (classification) or averaging (regression). See the illustration below:
+
+![bagging](/img/rf5.png)
+
+Bagging has the following characteristics:
+
+1. A bootstrap sample is chosen at random with replacement from the data. Some observations end up in the bootstrap sample more than once, while others are not included ("out of bag").
+
+2. Bagging reduces the variance of the base learner but has limited effect on the bias.
+
+### Random Forest
+
+RF grows a forest of many trees. It grows each tree on an independent bootstrap sample from the training data.
+
+#### The algorithm
+
+1. At each node:
+    1. Select m variables at random out of all M possible variables.
+    2. Find the best split on the selected m variables.
+2. Grow the trees to maximum depth (classification).
+3. Vote/average the trees to get predicitons for new data.
