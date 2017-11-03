@@ -265,3 +265,14 @@ def predict(node, row):
 #### Banknote case study
 
 See the code in [GitHub/xuewyang/randomforest](https://github.com/xuewyang/randomforest/tree/master/dt).
+
+## Random Forests
+
+### Disadvantages of DT
+
+1. Accuracy - CART is often not as accurate as SVM and ensemble classifiers.
+2. Instability - If we change the data a little, the tree structure can change a lot. So the prediction is not as straightforward as it appears.
+
+### Bagging
+
+
