@@ -32,7 +32,7 @@ See the below figure
 
 ![terminology](/img/dt2.png)
 
-##CART - Classification and Regression Trees
+## CART - Classification and Regression Trees
 Regression trees are used when dependent variable is continuous. Classification trees are used when dependent variable is categorical.
 
 ### How does a tree decide where to split ?
