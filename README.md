@@ -286,7 +286,7 @@ A single tree will have the following pattern, which is not a good way to separa
 
 If we had 25 trees and average them, then we have the following pattern.
 
-![25averagedtree](/img/rf3.png =50x50)
+![25averagedtree](/img/rf3.png){:height="24px" width="24px"}
 
 If the 25 trees vote for the final prediction, then we have the following, which is more accurate.
 
