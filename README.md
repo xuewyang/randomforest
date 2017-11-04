@@ -271,9 +271,10 @@ See the code in [GitHub/xuewyang/randomforest](https://github.com/xuewyang/rando
 ### Disadvantages of DT
 
 1. Accuracy - CART is often not as accurate as SVM and ensemble classifiers.
-2. Instability - If we change the data a little, the tree structure can change a lot. So the prediction is not as straightforward as it appears.
+2. Instability - If we change the data a little, the tree structure can change a lot. So the prediction is not as straightforward as it appears. Susceptible to high variance.
+3. The high variance can be reduced by creating multiple trees with different samples of the training dataset (different views of the problem) and combining their predictions.
 
-### Bagging
+### Bagging/bootstrap aggregation
 
 There is a hard problem for a single tree: 
 
@@ -301,9 +302,11 @@ Bagging has the following characteristics:
 
 2. Bagging reduces the variance of the base learner but has limited effect on the bias.
 
+3. The same greedy algorithm is used to create each tree, meaning that it is likely that the same or very similar trees will be correlated. This makes the predictions similar.
+
 ### Random Forest
 
-RF grows a forest of many trees. It grows each tree on an independent bootstrap sample from the training data.
+RF grows a forest of many trees. It grows each tree on an independent bootstrap sample from the training data. Different from bagging, it forces the decision trees to be different by limiting the features that the greedy algorithm can evaluate at each split point when creating the tree. For example, the number of attrabutes to be considered for the split is limited to be the square root of the number of input features. This will make trees to be more different from each other (uncorrelated), resulting predicitons that are more diverse and a combined prediction that often has better performance.
 
 #### The algorithm
 
