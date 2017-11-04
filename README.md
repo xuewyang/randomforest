@@ -315,3 +315,8 @@ RF grows a forest of many trees. It grows each tree on an independent bootstrap 
     2. Find the best split on the selected m variables.
 2. Grow the trees to maximum depth (classification).
 3. Vote/average the trees to get predicitons for new data.
+
+## References
+
+1. [Tree based modeling](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/#nine)
+2. [DT](https://machinelearningmastery.com/implement-decision-tree-algorithm-scratch-python/)
