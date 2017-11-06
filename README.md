@@ -319,4 +319,3 @@ RF grows a forest of many trees. It grows each tree on an independent bootstrap 
 ## References
 
 1. [Tree based modeling](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/#nine)
-2. [DT](https://machinelearningmastery.com/implement-decision-tree-algorithm-scratch-python/)
